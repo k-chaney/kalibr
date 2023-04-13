@@ -375,8 +375,8 @@ def getReprojectionErrorStatistics(all_rerrs):
     rerr_matrix = np.array(rerr_matrix)
     gc.enable()
     
-    mean = np.mean(rerr_matrix, 0, dtype=np.float)
-    std = np.std(rerr_matrix, 0, dtype=np.float)
+    mean = np.mean(rerr_matrix, 0, dtype=float)
+    std = np.std(rerr_matrix, 0, dtype=float)
  
     return mean, std
 
@@ -729,8 +729,8 @@ def plotOutlierCorners(cself, removedOutlierCorners, fno=1, clearFigure=True, ti
         corners=np.array(corners)
         
         #plot
-        subplot_rows = np.ceil( np.sqrt(len(cself.cameras)) )
-        subplot_cols = np.ceil( np.sqrt(len(cself.cameras)) )
+        subplot_rows = int(np.ceil( np.sqrt(len(cself.cameras)) ))
+        subplot_cols = int(np.ceil( np.sqrt(len(cself.cameras)) ))
         pl.subplot(subplot_rows, subplot_cols, cidx+1)
         pl.title("cam{0}".format(cidx))
             
